@@ -65,30 +65,34 @@ Our learning curve is as follows:
 <table>
   <tr>
     <td>
-      <img src="figures/VideoPinball-ramNoFrameskip-v4.png" width="100">
+      <img src="figures/VideoPinball-ramNoFrameskip-v4.png" width="400">
     </td>
     <td>
-      <img src="figures/BreakoutNoFrameskip-v4.png" width="100">
-    </td>
-    <td>
-      <img src="figures/PongNoFrameskip-v4.png" width="100">
-    </td>
-    <td>
-      <img src="figures/BoxingNoFrameskip-v4.png" width="100">
+      <img src="figures/BreakoutNoFrameskip-v4.png" width="400">
     </td>
   </tr>
   <tr>
     <td>
-      <img src="figures/Hopper-v2.png" width="100">
+      <img src="figures/PongNoFrameskip-v4.png" width="400">
     </td>
     <td>
-      <img src="figures/Humanoid-v2.png" width="100">
+      <img src="figures/BoxingNoFrameskip-v4.png" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="figures/Hopper-v2.png" width="400">
     </td>
     <td>
-      <img src="figures/HalfCheetah-v2.png" width="100">
+      <img src="figures/Humanoid-v2.png" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="figures/HalfCheetah-v2.png" width="400">
     </td>
     <td>
-      <img src="figures/Ant-v2.png" width="100">
+      <img src="figures/Ant-v2.png" width="400">
     </td>
   </tr>
 </table>
