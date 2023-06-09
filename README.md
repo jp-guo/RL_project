@@ -34,8 +34,8 @@ This repository contains the source code to reproduce the experiments in the rei
 ## Setup
 Run the following command to build the environment:
 ```angular2html
-conda activate rl
 conda env create -f environment.yml
+conda activate rl
 ```
 
 We conduct experiments in the Atari and MuJoCo environments, please refer to [Atari](https://www.gymlibrary.dev/environments/atari/) and [MuJoCo](https://www.gymlibrary.dev/environments/mujoco/) for more information about the environments.
