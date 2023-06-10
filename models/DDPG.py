@@ -9,17 +9,22 @@ class QValueNet(nn.Module):
         super().__init__()
         self.linear1 = nn.Linear(state_dim+action_dim, hidden_dim)
         self.linear2 = nn.Linear(hidden_dim, hidden_dim)
-        self.linear3 = nn.Linear(hidden_dim, hidden_dim)
-        self.linear4 = nn.Linear(hidden_dim, hidden_dim)
+        # self.linear3 = nn.Linear(hidden_dim, hidden_dim)
+        # self.linear4 = nn.Linear(hidden_dim, hidden_dim)
         self.linear5 = nn.Linear(hidden_dim, 1)
 
     def forward(self, s, a):
-        x1 = torch.cat([s, a], 1)
-        x2 = F.relu(self.linear1(x1))
-        x3 = F.relu(self.linear2(x2))
-        x4 = F.relu(self.linear3(x3 + x2))
-        x5 = F.relu(self.linear4(x4 + x3 + x2))
-        x6 = self.linear3(x5 + x4 + x3 + x2)
+        # x1 = torch.cat([s, a], 1)
+        # x2 = F.relu(self.linear1(x1))
+        # x3 = F.relu(self.linear2(x2))
+        # x4 = F.relu(self.linear3(x3 + x2))
+        # x5 = F.relu(self.linear4(x4 + x3 + x2))
+        # x6 = self.linear3(x5 + x4 + x3 + x2)
+
+        x = torch.cat([s, a], 1)
+        x = F.relu(self.linear1(x))
+        x = F.relu(self.linear2(x))
+        x6 = self.linear5(x)
 
         return x6
 
@@ -29,18 +34,18 @@ class PolicyNet(nn.Module):
         super(PolicyNet, self).__init__()
         self.linear1 = nn.Linear(state_dim, hidden_dim)
         self.linear2 = nn.Linear(hidden_dim, hidden_dim)
-        self.linear3 = nn.Linear(hidden_dim, hidden_dim)
-        self.linear4 = nn.Linear(hidden_dim, hidden_dim)
+        # self.linear3 = nn.Linear(hidden_dim, hidden_dim)
+        # self.linear4 = nn.Linear(hidden_dim, hidden_dim)
         self.linear5 = nn.Linear(hidden_dim, action_dim)
         self.action_bound = action_bound
 
     def forward(self, s):
         x1 = F.relu(self.linear1(s))
         x2 = F.relu(self.linear2(x1))
-        x3 = F.relu(self.linear3(x2 + x1))
-        x4 = F.relu(self.linear4(x3 + x2 + x1))
-        x5 = torch.tanh(self.linear5(x4 + x3 + x2 + x1)) * self.action_bound
-
+        # # x3 = F.relu(self.linear3(x2 + x1))
+        # # x4 = F.relu(self.linear4(x3 + x2 + x1))
+        # x5 = torch.tanh(self.linear5(x4 + x3 + x2 + x1)) * self.action_bound
+        x5 = torch.tanh(self.linear5(x2)) * self.action_bound
         return x5
 
 

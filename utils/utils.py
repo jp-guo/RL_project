@@ -18,7 +18,8 @@ def train_off_policy_mujoco(env, state_dim, agent, num_episodes, replay_buffer, 
         agent.sigma = max(agent.sigma - sigma_decay, sigma_end)
         while not done:
             action = agent.take_action(state)
-            next_state, reward, done, _ = env.step(action)
+            next_state, reward, done, info = env.step(action)
+            done = done
             next_state = next_state[:state_dim]
             replay_buffer.add(state, action, reward, next_state, done)
             state = next_state
